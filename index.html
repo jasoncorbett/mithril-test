@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Mithril Test</title>
-		<link rel="stylesheet" href="theme.css" />
+<head>
+    <title>Mithril Test</title>
+    <link rel="stylesheet" href="theme.css"/>
 
-	</head>
-	<body>
-		<script src="http://unpkg.com/mithril/mithril.js"></script>
-		<script>
-			var input = {
-				value: "",
-				setValue: function(v) {input.value = v;}
-			};
+</head>
+<body>
+<script src="http://unpkg.com/mithril/mithril.js"></script>
+<script>
+    var input = {
+        value: "",
+        setValue: function (v) {
+            input.value = v;
+        }
+    };
 
-			var pageTitle = {
-			    title: "Default Page",
-				setTitle: function(t) {pageTitle.title = t;}
-			};
+    var pageTitle = {
+        title: "Default Page",
+        setTitle: function (t) {
+            pageTitle.title = t;
+        }
+    };
 
-			var NavComponent = {
-			    view: function () {
-			        return m("nav.slick-nav.has-shadow", [
-			            m("div.nav-left", m("a.slick-nav-item", "SLICK")),
-						m("div.nav-center", m("h1.slick-title", pageTitle.title)),
-						m("div.nav-right", "")
-					]);
-                }
-			};
+    var NavComponent = {
+        view: function () {
+            return m("nav.slick-nav.has-shadow", [
+                m("div.nav-left", m("a.slick-nav-item", "SLICK")),
+                m("div.nav-center", m("h1.slick-title", pageTitle.title)),
+                m("div.nav-right", "")
+            ]);
+        }
+    };
 
-			var PageComponent = {
-				view: function() {
-				    return [
-				        m(NavComponent),
-						m("div.container.is-fluid.columns", m("div.card.column.is-half.is-offset-one-quarter", [
-							m("div.card-content", m("p.title", "Hello " + input.value)),
-							m("div.field.is-horizontal", [
-								m("div.field-label", m("label.label", "To:")),
-								m("div.field-body", m("div.field.is-grouped", m("p.control.is-expanded", m("input.input.is-fullwidth", {type: "text", placeholder: "Whom", oninput: m.withAttr("value", input.setValue)}))))
-							])
-						]))];
-				}
-			};
+    var PageComponent = {
+        view: function () {
+            return [
+                m(NavComponent),
+                m("div.container.is-fluid.columns", m("div.card.column.is-half.is-offset-one-quarter", [
+                    m("div.card-content", m("p.title", "Hello " + input.value)),
+                    m("div.field.is-horizontal", [
+                        m("div.field-label", m("label.label", "To:")),
+                        m("div.field-body", m("div.field.is-grouped", m("p.control.is-expanded", m("input.input.is-fullwidth", {
+                            type: "text",
+                            placeholder: "Whom",
+                            oninput: m.withAttr("value", input.setValue)
+                        }))))
+                    ])
+                ]))];
+        }
+    };
 
-			m.mount(document.body, PageComponent);
-		</script>
-	</body>
+    m.mount(document.body, PageComponent);
+</script>
+</body>
 </html>
