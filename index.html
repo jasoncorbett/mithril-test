@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mithril Test</title>
+		<link rel="stylesheet" href="theme.css" />
+	</head>
+	<body>
+		<script src="http://unpkg.com/mithril/mithril.js"></script>
+		<script>
+			var input = {
+				value: "",
+				setValue: function(v) {input.value = v;}
+			};
+			var PageComponent = {
+				view: function() {
+					return m("div.container.columns", m("div.card.column.is-half.is-offset-one-quarter", [
+						m("div.card-content", m("p.title", "Hello " + input.value)),
+						m("footer.card-footer",
+							m("div.field.is-horizontal", [
+								m("div.field-label.is-normal", m("label.label", "Say Hello To:")), 
+								m("div.field-body", m("div.field.is-grouped", m("p.control.is-expanded", m("input.input.is-fullwidth", {type: "text", placeholder: "Who", oninput: m.withAttr("value", input.setValue)}))))
+							]))
+					]));
+				}
+			};
+
+			m.mount(document.body, PageComponent);
+		</script>
+	</body>
+</html>
