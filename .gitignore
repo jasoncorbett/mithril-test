@@ -1,5 +1,6 @@
 *~
 node_modules
-theme.css
+light.css
+dark.css
 .idea
 *.iml

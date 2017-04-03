@@ -1,0 +1,45 @@
+
+// Override initial variables here
+// You can add new ones or update existing ones:
+
+// $blue: #72d0eb // Update blue
+// $pink: #ffb3b3 // Add pink
+
+// Override generated variables here
+// For example, by default, the $danger color is $red and the font is sans-serif
+// You can change these values:
+
+// $danger: $orange // Use the existing orange
+
+// $white:        hsl(0, 0%, 4%)
+// $white-bis:    hsl(0, 0%, 7%)
+// $white-ter:    hsl(0, 0%, 14%)
+// $grey-lighter: hsl(0, 0%, 21%)
+// $grey-light:   hsl(0, 0%, 29%)
+// $grey-dark:    hsl(0, 0%, 71%)
+// $grey-darker:  hsl(0, 0%, 86%)
+// $black-ter:    hsl(0, 0%, 96%)
+// $black-bis:    hsl(0, 0%, 98%)
+// $black:        hsl(0, 0%, 100%)
+
+@import "bulma"
+
+.slick-nav
+  @extend .nav
+  background-color: #bb0000
+  margin-bottom: 2rem
+  color: $white-bis
+
+.slick-title
+  @extend .title
+  color: $white-bis
+
+a.slick-nav-item
+  @extend .nav-item
+  color: $white-bis
+
+a.slick-nav-item:visited
+  color: $white-bis
+
+a.slick-nav-item:hover
+  color: $white
