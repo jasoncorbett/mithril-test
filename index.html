@@ -3,6 +3,7 @@
 	<head>
 		<title>Mithril Test</title>
 		<link rel="stylesheet" href="theme.css" />
+
 	</head>
 	<body>
 		<script src="http://unpkg.com/mithril/mithril.js"></script>
@@ -11,16 +12,33 @@
 				value: "",
 				setValue: function(v) {input.value = v;}
 			};
+
+			var pageTitle = {
+			    title: "Default Page",
+				setTitle: function(t) {pageTitle.title = t;}
+			};
+
+			var NavComponent = {
+			    view: function () {
+			        return m("nav.slick-nav.has-shadow", [
+			            m("div.nav-left", m("a.slick-nav-item", "SLICK")),
+						m("div.nav-center", m("h1.slick-title", pageTitle.title)),
+						m("div.nav-right", "")
+					]);
+                }
+			};
+
 			var PageComponent = {
 				view: function() {
-					return m("div.container.columns", m("div.card.column.is-half.is-offset-one-quarter", [
-						m("div.card-content", m("p.title", "Hello " + input.value)),
-						m("footer.card-footer",
+				    return [
+				        m(NavComponent),
+						m("div.container.is-fluid.columns", m("div.card.column.is-half.is-offset-one-quarter", [
+							m("div.card-content", m("p.title", "Hello " + input.value)),
 							m("div.field.is-horizontal", [
-								m("div.field-label.is-normal", m("label.label", "Say Hello To:")), 
-								m("div.field-body", m("div.field.is-grouped", m("p.control.is-expanded", m("input.input.is-fullwidth", {type: "text", placeholder: "Who", oninput: m.withAttr("value", input.setValue)}))))
-							]))
-					]));
+								m("div.field-label", m("label.label", "To:")),
+								m("div.field-body", m("div.field.is-grouped", m("p.control.is-expanded", m("input.input.is-fullwidth", {type: "text", placeholder: "Whom", oninput: m.withAttr("value", input.setValue)}))))
+							])
+						]))];
 				}
 			};
 
