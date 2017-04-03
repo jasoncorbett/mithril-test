@@ -4,7 +4,8 @@
   "description": "Simple test of mithril and bulma",
   "main": "index.html",
   "dependencies": {
-    "bulma": "^0.4.0"
+    "bulma": "^0.4.0",
+    "node-sass": "^4.5.2"
   },
   "devDependencies": {},
   "scripts": {
